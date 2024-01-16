@@ -13,6 +13,7 @@ DEFINES=
 
 # Grackle Dirs
 # for 64 bit floats
+GRACKLE_ROOT = /home/zxiang/codes/grackle-swift/local
 GRACKLE_INCL =  -I$(GRACKLE_ROOT)/include
 GRACKLE_LIBS =  -L$(GRACKLE_ROOT)/lib
 CONFIG_BFLOAT= CONFIG_BFLOAT_8
