@@ -86,6 +86,9 @@ int main() {
   gr_float nHeII;
   gr_float nHeIII;
   gr_float ne;
+  gr_float nHM;
+  gr_float nH2I;
+  gr_float nH2II;
 
   /* get densities of primordial spicies assuming ionization equilibrium */
   ionization_equilibrium_calculate_densities(T, nH, hydrogen_fraction_by_mass,
