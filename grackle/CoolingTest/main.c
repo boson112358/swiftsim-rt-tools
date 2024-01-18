@@ -90,6 +90,12 @@ int main() {
   gr_float nH2I;
   gr_float nH2II;
 
+
+  /* ADD mode 2 just for test. */
+  nHM = 1e40;
+  nH2I = 1e40;
+  nH2II = 1e40;
+
   /* get densities of primordial spicies assuming ionization equilibrium */
   ionization_equilibrium_calculate_densities(T, nH, hydrogen_fraction_by_mass,
                                              &nHI, &nHII, &nHeI, &nHeII,
@@ -105,17 +111,22 @@ int main() {
    * !! or electron mass density * nH / ne */
   gr_float e_density = ne * (const_mh / mass_units);
 
+  /* ADD mode 2 */
+  gr_float HM_density = nHM * (const_mh / mass_units);
+  gr_float H2I_density = nH2I * (2 * const_mh / mass_units);
+  gr_float H2II_density = nH2II * (2 * const_mh / mass_units);
+
   /* Store them all in a single array for simplicity. */
   gr_float species_densities[12] = {
       HI_density, HII_density, HeI_density, HeII_density, HeIII_density,
-      e_density,  0.,          0.,          0.,           0.,
+      e_density, HM_density, H2I_density, H2II_density,           0.,
       0.,         0.};
 
   /* Grackle behaviour setup */
   /* ----------------------- */
 
   int UVbackground = 0;         /* toogle on/off the UV background */
-  int primordial_chemistry = 1; /* choose the chemical network */
+  int primordial_chemistry = 2; /* choose the chemical network */
   int use_radiative_cooling = 1;
   int use_radiative_transfer = 0;
   char *grackle_data_file = "";
